@@ -48,7 +48,7 @@
         </ul>
       </div>
       <div>
-        <button type="button" class="mybtn bg-success textdecor history_api" data-toggle="modal" data-target="#feedbackFormModal">Заказать звонок</button>
+        <button type="button" class="mybtn bg-success textdecor history" data-toggle="modal" data-target="#feedbackFormModal">Заказать звонок</button>
       </div>
       </div>
     </div>
@@ -440,11 +440,22 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
 		$(function(){
-				$('.history_api').on('click', function() {
-					history.pushState({foo: 'bar'}, 'Title', 'index.html=?form823713283s');
+			$(".history").click(
+				function(){
+					history.pushState(null, null, "?form=1");
+					var url_string = window.location.href
+					var url = new URL(url_string);
+					var utm = url.searchParams.get("form");
+					if (utm==1) j(".aras").show(); else
+					j(".aras").hide();
 				});
-				$('.history_api_back').on('click',function(){
-					history.pushState({foo: 'bar'}, 'Title', 'index.html');
+				window.addEventListener("popstate", function(e) {
+					var url_string = window.location.href
+					var url = new URL(url_string);
+					var utm = url.searchParams.get("form");
+					if (utm==1) j(".aras").show(); else
+					$(".aras").hide();
+		    		}, false)
 				});
 		    $(".ajaxForm").submit(function(e){
 		        e.preventDefault();
@@ -460,7 +471,6 @@
 		                    alert("Заявка принята, спасибо вам");
 												setTimeout(function() {
         									th.trigger("reset");
-													history.back();
       										}, 1000);
 		                }else{
 		                    alert("Ошибка, попробуйте ещё раз" + response.message);
