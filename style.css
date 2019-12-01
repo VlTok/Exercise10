@@ -12,7 +12,7 @@ i{
 	padding: 0px !important;
 }
 .textdecor{
-	padding: 10px; 
+	padding: 10px;
 }
 .mybtn{
 	color: #ffffff;
@@ -27,13 +27,13 @@ i{
 .collapse{
 	margin-right: 250px;
 }
-.mybtn1{  
+.mybtn1{
 	background-color: #ffffff;
 	border-top: 0px;
 	border-bottom: 0px;
 	border-right-width: 1px !important;
 	border-left-width: 1px !important;
-	padding: 8px;   
+	padding: 8px;
 }
 .date-card{
 	margin-left: 26%;
@@ -67,6 +67,9 @@ h4{
 	color: #000000;
 	font-weight: lighter !important;
 	font-size: 14pt;
+}
+.content-center{
+	margin-left: 30%;
 }
 .justify-for-center{
 	justify-content: center !important;
@@ -115,7 +118,7 @@ h4{
 	margin-left: 3%;
 }
 .block-margin{
-	margin-top: 120px; 
+	margin-top: 120px;
 }
 .block-margin-2{
 	margin-top: 50px;
@@ -146,7 +149,7 @@ a.informationblog{
 	text-decoration: none;
 	color: #F97300;
 }
-.nav-link{ 
+.nav-link{
 	color: #000000 !important;
 	margin-right: 1em !important;
 }
