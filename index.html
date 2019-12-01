@@ -7,10 +7,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 		<script src="scripts.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
@@ -51,10 +48,51 @@
         </ul>
       </div>
       <div>
-        <button class="mybtn bg-success textdecor">Заказать звонок</button>
+        <button type="button" class="mybtn bg-success textdecor history_api" data-toggle="modal" data-target="#feedbackFormModal">Заказать звонок</button>
       </div>
       </div>
     </div>
+		<!-- Форма обратной связи в модальном окне -->
+		<div class="modal" id="feedbackFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="myModalLabel">Форма обратной связи</h5>
+		        <button type="button" class="close history_api_back" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">×</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <!-- Форма обратной связи -->
+		        <form id="feedbackForm" class="ajaxForm" action="https://formcarry.com/s/IG3xUDz6F_r" method="POST">
+		            <div class="col-sm-12">
+		                <input id="name" type="text" name="name" class="form-control" placeholder="Имя" minlength="2" maxlength="30">
+		            </div><br>
+		            <div class="col-sm-12">
+		                <input id="phone" type="number" name="phone" class="form-control" value="" placeholder="Телефон">
+		            </div><br>
+								<div class="col-sm-12">
+										<select name="Coins" id="regions" class="form-control">
+												<option value="0" selected="selected">Краснодар</option>
+												<option value="1">Ростов</option>
+												<option value="2">Сочи</option>
+												<option value="3">Омск</option>
+												<option value="4">Москва</option>
+										</select>
+		            </div><br>
+								<div class="col-sm-12">
+			            	<textarea id="message" name="message" class="form-control" rows="3" placeholder="Сообщение" minlength="20" maxlength="500" required="required"></textarea>
+								</div><br>
+		          	<!-- Сообщение -->
+			          <!-- Кнопка для отправки формы -->
+								<div class="container">
+			          	<button type="submit" id="sendMail" class="mybtn bg-success textdecor content-center">Отправить сообщение</button>
+								</div>
+		        	</form>
+		      	</div>
+		    	</div>
+		  	</div>
+			</div>
 		<nav class="navbar navbar-expand-md nv">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -397,5 +435,40 @@
       </div>
     </div> 
     </footer>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+		$(function(){
+				$('.history_api').on('click', function() {
+					history.pushState({foo: 'bar'}, 'Title', 'index.html=?form823713283s');
+				});
+				$('.history_api_back').on('click',function(){
+					history.pushState({foo: 'bar'}, 'Title', 'index.html');
+				});
+		    $(".ajaxForm").submit(function(e){
+		        e.preventDefault();
+						var th = $(this);
+		        var href = $(this).attr("action");
+		        $.ajax({
+		            type: "POST",
+		            dataType: "json",
+		            url: href,
+		            data: $(this).serialize(),
+		            success: function(response){
+		                if(response.status == "success"){
+		                    alert("Заявка принята, спасибо вам");
+												setTimeout(function() {
+        									th.trigger("reset");
+													history.back();
+      										}, 1000);
+		                }else{
+		                    alert("Ошибка, попробуйте ещё раз" + response.message);
+		                }
+		            }
+		        });
+		    });
+				return false;
+		});
 	</body>
 </html>
