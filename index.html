@@ -441,10 +441,10 @@
 		<script>
 		$(function(){
 				$('.history_api').on('click', function() {
-					history.pushState({foo: 'bar'}, 'Title', 'index.html=?form823713283s');
+					history.pushState({foo: 'bar'}, 'Title', '/index.html=?form823713283s');
 				});
 				$('.history_api_back').on('click',function(){
-					history.pushState({foo: 'bar'}, 'Title', 'index.html');
+					history.pushState({foo: 'bar'}, 'Title', '/index.html');
 				});
 		    $(".ajaxForm").submit(function(e){
 		        e.preventDefault();
@@ -458,10 +458,10 @@
 		            success: function(response){
 		                if(response.status == "success"){
 		                    alert("Заявка принята, спасибо вам");
-												setTimeout(function() {
-        									th.trigger("reset");
-													history.back();
-      										}, 1000);
+					setTimeout(function() {
+        					th.trigger("reset");
+						history.back();
+      					}, 1000);
 		                }else{
 		                    alert("Ошибка, попробуйте ещё раз" + response.message);
 		                }
