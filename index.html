@@ -446,14 +446,14 @@
 					var url_string = window.location.href
 					var url = new URL(url_string);
 					var utm = url.searchParams.get("form");
-					if (utm==1) j(".aras").show(); else
-					j(".aras").hide();
+					if (utm==1) $(".aras").show(); else
+					$(".aras").hide();
 				});
 				window.addEventListener("popstate", function(e) {
 					var url_string = window.location.href
 					var url = new URL(url_string);
 					var utm = url.searchParams.get("form");
-					if (utm==1) j(".aras").show(); else
+					if (utm==1) $(".aras").show(); else
 					$(".aras").hide();
 		    		}, false)
 				});
