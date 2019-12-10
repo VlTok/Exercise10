@@ -93,46 +93,26 @@
 		    	</div>
 		  	</div>
 			</div>
-		<nav class="navbar navbar-expand-md nv">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto click-menu-element">
-            <li class="nav-item dropdown">
-              <a class="nav-link mybtn1" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-bars"></i> ПРОДУКЦИЯ
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">КАПЕЛЬНОЕ ОРОШЕНИЕ</a>
-                <a class="dropdown-item" href="#">УПАКОВКА ДЛЯ ОВОЩНЫХ КУЛЬТУР</a>
-                <a class="dropdown-item" href="#">УПАКОВКА ДЛЯ КОРМОВЫХ КУЛЬТУР</a>
-              </div>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">УСЛУГИ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-value="ourwork" href="blockchainshop.html">РЕАЛИЗОВАННЫЕ ПРОЕКТЫ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-value="pismo" href="blockchainshop.html">СТАТЬИ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-value="klient" href="aboutcompany.html">КЛИЕНТЫ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-value="companypeople" href="phone.html">О КОМПАНИИ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-value="contactinfo" href="blockchainshop.html">КОНТАКТЫ</a>
-            </li>
-          </ul>
-          <button type="button" class="mybtn1"><i class="fa fa-search"></i></button>
-        </div>
-      </div>
-    </nav>
+		<header>
+	    <nav class="dws-menu">
+	        <ul>
+	            <li id="product"><a href="#"><i class="fa fa-bars"></i> Продукция</a>
+	                <ul>
+	                    <li><a href="#">Капельное орошение</a></li>
+	                    <li><a href="#">Упаковка для овощных культур</a></li>
+	                    <li><a href="#">Упаковка для кормовых культур</a></li>
+	                </ul>
+	            </li>
+	            <li><a href="#">Услуги</a></li>
+							<li><a href="#">Реализованные проекты</a></li>
+							<li><a href="#">Статьи</a></li>
+							<li><a href="#">Клиенты</a></li>
+	            <li><a href="#">О компании</a></li>
+	            <li><a href="#">Контакты</a></li>
+							<li id="search"><a href="#"><i class="fa fa-search"></i></a></li>
+	        </ul>
+	    </nav>
+	</header>
 		<div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
@@ -435,27 +415,17 @@
       </div>
     </div> 
     </footer>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="js/formScript.js"></script>
 		<script>
 		$(function(){
-			$(".history").click(
-				function(){
-					history.pushState(null, null, "?form=1");
-					var url_string = window.location.href
-					var url = new URL(url_string);
-					var utm = url.searchParams.get("form");
-					if (utm==1) $(".aras").show(); else
-					$(".aras").hide();
+				$('.history_api').on('click', function() {
+					history.pushState({foo: 'bar'}, 'Title', 'index.html=?form823713283s');
 				});
-				window.addEventListener("popstate", function(e) {
-					var url_string = window.location.href
-					var url = new URL(url_string);
-					var utm = url.searchParams.get("form");
-					if (utm==1) $(".aras").show(); else
-					$(".aras").hide();
-		    		}, false)
+				$('.history_api_back').on('click',function(){
+					history.pushState({foo: 'bar'}, 'Title', 'index.html');
 				});
 		    $(".ajaxForm").submit(function(e){
 		        e.preventDefault();
@@ -471,6 +441,7 @@
 		                    alert("Заявка принята, спасибо вам");
 												setTimeout(function() {
         									th.trigger("reset");
+													history.back();
       										}, 1000);
 		                }else{
 		                    alert("Ошибка, попробуйте ещё раз" + response.message);
@@ -480,5 +451,6 @@
 		    });
 				return false;
 		});
+		</script>
 	</body>
 </html>
