@@ -13,7 +13,7 @@ function show() {
 	var div1 = document.getElementById("feedbackFormModal");
 	opacity = Number(window.getComputedStyle(div1).getPropertyValue("opacity"));
 	if (opacity < 1) {
-		opacity = opacity + 0.2;
+		opacity = opacity + 0.1;
 		div1.style.opacity = opacity;
 		console.log(opacity);
 	} else {
@@ -25,7 +25,7 @@ function hide() {
 	var div2 = document.getElementById("feedbackFormModal");
 	opacity = Number(window.getComputedStyle(div2).getPropertyValue("opacity"));
 	if (opacity > 0) {
-		opacity = opacity - 0.2;
+		opacity = opacity - 0.1;
 		div2.style.opacity = opacity;
 		console.log(opacity);
 	} else {
