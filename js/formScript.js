@@ -2,11 +2,11 @@ var opacity = 0;
 var intervalID = 0;
 
 function fadeOut() {
-	intervalID = setInterval(hide, 40);
+	intervalID = setInterval(hide, 100);
 }
 
 function fadeIn() {
-	intervalID = setInterval(show, 40);
+	intervalID = setInterval(show, 100);
 }
 
 function show() {
